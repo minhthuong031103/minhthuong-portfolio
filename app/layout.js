@@ -1,3 +1,4 @@
+import Script from 'next/script';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import './globals.css';
@@ -16,7 +17,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={montserrat.className}>
+      <body
+        className={`${montserrat.variable} font-mont bg-light dark:bg-dark w-full min-h-screen h-full`}
+      >
         <Navbar />
         {children}
         <Footer />

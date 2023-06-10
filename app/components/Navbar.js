@@ -80,7 +80,7 @@ const Navbar = function () {
   return (
     <header
       className="w-full px-32 py-8 font-medium
-    flex  items-center justify-between dark:text-light relative
+    flex items-center justify-between dark:text-light relative
     "
     >
       <button
