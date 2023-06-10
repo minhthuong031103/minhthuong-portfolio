@@ -26,7 +26,6 @@ const FeaturedArticle = function ({ img, title, time, summary, link }) {
       >
         <FramerImage
           priority
-          sizes="(max-width: 768px) 100vw, (max-width:1200px) 50vw, 50vw"
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.2 }}
           src={img}

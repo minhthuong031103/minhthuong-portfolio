@@ -31,6 +31,7 @@ const FeaturedProject = function ({ type, title, summary, img, link, github }) {
           whileHover={{ scale: 1.05 }}
           src={img}
           alt={title}
+          priority
           className="w-full h-auto "
         ></FramerImage>
       </Link>
