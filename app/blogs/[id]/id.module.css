@@ -16,18 +16,27 @@
 }
 .html > * > * img {
   margin-bottom: 2rem;
+  height: auto;
+  width: auto;
+  max-width: 800px;
+  max-height: 500px;
 }
 .html > * > * > code,
 .html > * > code {
-  background-color: rgb(150, 167, 167);
-  padding: 0.25rem;
+  background-color: rgb(210, 227, 167);
+  padding: 0.1em;
   border-radius: 6px;
 }
 .html > * > pre {
-  margin: 1rem 0;
-  background-color: #eee3cb;
-  padding: 0.75rem;
-  overflow-x: scroll;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: auto;
+  overflow-y: hidden;
+
+  background: #dfd3c3;
+  border: 1px solid #777;
+
   border-radius: 12px;
 }
 .html > blockquote {

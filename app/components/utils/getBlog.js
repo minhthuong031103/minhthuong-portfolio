@@ -57,6 +57,7 @@ export async function getBlogs() {
 
 export async function getBlogDetail(blogId) {
   const response = await fetch(API_URL, {
+    next: { revalidate: 60 },
     method: 'POST',
     headers: {
       Authorization: `token ${access_token}`,
@@ -67,6 +68,7 @@ export async function getBlogDetail(blogId) {
 
   let res = await response.json();
   let discussion = res.data.repository.discussion;
+
   const {
     author: { url: authorUrl, login: authorName, avatarUrl: authorAvatar },
     createdAt,

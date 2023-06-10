@@ -74,9 +74,13 @@ export const FeaturedArticle = function ({
       </div>
 
       <p className="text-sm mb-2 overflow-hidden">{summary}</p>
-      <span className="text-primary font-semibold dark:text-primaryDark">
-        {time}
-      </span>
+      <div className="flex flex-row items-center">
+        <AiOutlineClockCircle className="text-primary mr-3" />
+        <span className="text-primary font-semibold dark:text-primaryDark">
+          {time}
+        </span>
+      </div>
+
       <div className="flex">
         <div>
           <Image
@@ -153,7 +157,7 @@ export default function BlogList({ blogData }) {
                     title={blog.title}
                     summary={blog.bodyText.slice(0, 300) + '...'}
                     time={createdDay.toLocaleDateString('en-US', options)}
-                    link="/"
+                    link={`/blogs/${blog.id}`}
                     tags={blog.tags}
                     author={blog.author}
                   />
