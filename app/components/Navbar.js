@@ -74,8 +74,8 @@ const Navbar = function () {
     words: [
       'Hi, My name is Minh Thuong',
       'A software guy',
-      '< ILoveCoding />',
       'A full-stack developer',
+      '< ILoveCoding />',
       'Contact me for work',
     ],
     loop: true,

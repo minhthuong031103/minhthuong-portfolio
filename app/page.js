@@ -44,7 +44,7 @@ export default function Home() {
             lg:w-full lg:text-center"
             >
               <AnimatedText
-                text="Tui là Minh Thường đây nè"
+                text="Welcome to my Portfolio"
                 className="!text-6xl !text-left 
                 xl:!text-5xl lg:!text-center lg:!text-6xl md:!text-5xl sm:!text-3xl
                 "
@@ -55,6 +55,15 @@ export default function Home() {
                 ideas into innovative web applications. Explore my latest
                 projects and articles, showcasing my expertise in React.js and
                 web development.
+                <br></br>
+                <br></br>I am eager to collaborate on exciting new ventures,
+                bringing fresh ideas to life through the power of technology.
+                <br></br>
+                <br></br>
+                If you are interested in my skills or have any questions, please
+                feel free to reach out. I would be delighted to connect with you
+                and explore how we can work together to turn your ideas into
+                reality.
               </p>
 
               <div className="flex items-center self-start mt-2 lg:self-center">
@@ -70,15 +79,16 @@ export default function Home() {
                 >
                   Resume <LinkArrow className={'!w-6 md:!w-4 ml-1'} />
                 </Link>
-                <Link
-                  href="mailto:abcd@gmail.com"
+                <a
+                  target={'_blank'}
+                  href="mailto:21522655@gmail.com"
                   className="ml-4 text-lg font-medium capitalize
                    dark:text-light text-dark underline
                    md:text-base
                    "
                 >
                   Contact
-                </Link>
+                </a>
               </div>
             </div>
           </div>
