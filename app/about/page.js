@@ -85,23 +85,18 @@ export default function About() {
                 Biography
               </h2>
               <p className="font-medium">
-                {`Hi, I'm CodeBucks, a web developer and UI/UX designer with a
-                passion for creating beautiful, functional, and user-centered
-                digital experiences. With 4 years of experience in the field. I
-                am always looking for new and innovative ways to bring my
-                clients' visions to life.`}
+                {`Hi, I'm Nguyen Minh Thuong, a full-stack web developer with a
+                passion for creating beautiful, functional,With a strong 
+                foundation in both front-end and back-end technologies,
+                 I am committed to delivering exceptional 
+                user experiences and driving digital transformation through code.`}
               </p>
               <p className="my-4 font-medium">
-                {` I believe that design is about more than just making things look
-                pretty – it's about solving problems and creating intuitive,
-                enjoyable experiences for users.`}
-              </p>
-              <p className="font-medium">
-                {`Whether I'm working on a website, mobile app, or other digital
-                product, I bring my commitment to design excellence and
-                user-centered thinking to every project I work on. I look
-                forward to the opportunity to bring my skills and passion to
-                your next project.`}
+                {` I has honed my skills in various web development frameworks
+                 and languages, including but not limited to HTML, CSS, JavaScript, React.js, Node.js, Express.js,
+                  and SQL/NoSQL databases. With a comprehensive understanding of the entire web development 
+                  stack, I am able to 
+                build scalable and efficient solutions with both position front-end and back-end.`}
               </p>
             </div>
             <div
@@ -135,7 +130,7 @@ export default function About() {
                   className="inline-block text-7xl font-bold 
                 md:text-6xl sm:text-5xl xs:text-4xl"
                 >
-                  <AnimatedNumbers value={50} />+
+                  <AnimatedNumbers value={15} />
                 </span>
                 <h2
                   className="text-xl font-medium capitalize
@@ -145,7 +140,7 @@ export default function About() {
                   xs:text-sm
                 "
                 >
-                  hehe
+                  Projects
                 </h2>
               </div>
               <div className="flex flex-col items-end justify-center xl:items-center">
@@ -162,7 +157,7 @@ export default function About() {
                    xs:text-sm
                    "
                 >
-                  loaoa as aso
+                  Clients
                 </h2>
               </div>
               <div className="flex flex-col items-end justify-center xl:items-center">
@@ -172,7 +167,7 @@ export default function About() {
 
                 "
                 >
-                  <AnimatedNumbers value={50} />+
+                  <AnimatedNumbers value={1} />+
                 </span>
                 <h2
                   className="text-xl font-medium capitalize text-dark/75 
@@ -181,7 +176,7 @@ export default function About() {
                     xs:text-sm
                     "
                 >
-                  aa sadas
+                  Year experience
                 </h2>
               </div>
             </div>

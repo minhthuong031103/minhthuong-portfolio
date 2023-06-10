@@ -72,16 +72,16 @@ const Education = function () {
 
         <ul className="w-full flex flex-col items-start justify-between ml-4 xs:ml-2">
           <Detail
-            type="Bachelor Of Science In Computer Science"
-            time="2016-2020"
-            place="Massachusetts Institute Of Technology (MIT)"
+            type="Software Engineering"
+            time="2021-Present"
+            place="University of Information Technology (UIT)"
             info=" Relevant courses included Data Structures and Algorithms, Computer Systems Engineering, and Artificial 
            Intelligence."
           />
           <Detail
-            type="Bachelor Of Science In Computer Science"
-            time="2016-2020"
-            place="Massachusetts Institute Of Technology (MIT)"
+            type="Cu Chi HighSchool"
+            time="2018-2021"
+            place="Cu Chi province, Ho Chi Minh City"
             info=" Relevant courses included Data Structures and Algorithms, Computer Systems Engineering, and Artificial 
            Intelligence."
           />

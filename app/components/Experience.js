@@ -85,41 +85,20 @@ const Experience = function () {
         "
         >
           <Detail
-            position="Software Engineer"
-            company="Google"
-            companyLink="www.google.com"
-            time="2022-Present"
-            address=" Mountain View, CA"
+            position="Full-stack Developer"
+            company="Playground"
+            companyLink="https://www.playgroundx.site/"
+            time="2023-Present"
+            address=" 36 Nguyen Van Kinh, Thanh My Loi, District 2, Ho Chi Minh City"
             work="Worked on a team responsible for developing new features for Google's 
 search engine, including improving the accuracy and relevance of search results and 
 developing new tools for data analysis and visualization."
           />
           <Detail
-            position="Software Engineer"
-            company="Google"
-            companyLink="www.google.com"
-            time="2022-Present"
-            address=" Mountain View, CA"
-            work="Worked on a team responsible for developing new features for Google's 
-search engine, including improving the accuracy and relevance of search results and 
-developing new tools for data analysis and visualization."
-          />
-          <Detail
-            position="Software Engineer"
-            company="Google"
-            companyLink="www.google.com"
-            time="2022-Present"
-            address=" Mountain View, CA"
-            work="Worked on a team responsible for developing new features for Google's 
-search engine, including improving the accuracy and relevance of search results and 
-developing new tools for data analysis and visualization."
-          />
-          <Detail
-            position="Software Engineer"
-            company="Google"
-            companyLink="www.google.com"
-            time="2022-Present"
-            address=" Mountain View, CA"
+            position="FreeLancer"
+            companyLink=""
+            time="2021-2023"
+            address="Ho Chi Minh City"
             work="Worked on a team responsible for developing new features for Google's 
 search engine, including improving the accuracy and relevance of search results and 
 developing new tools for data analysis and visualization."

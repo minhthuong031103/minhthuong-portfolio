@@ -6,9 +6,12 @@ import Layout from '../components/Layout';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-import project1 from '../../public/images/crypto-screener-cover-image.jpg';
+import project1 from '../../public/project_images/musicplayer.png';
+import project2 from '../../public/project_images/aiCare.png';
 import { motion } from 'framer-motion';
 import TransitionEffect from '../components/TransitionEffect';
+import AnchorComponent from '../components/Anchor';
+import { useEffect, useState } from 'react';
 const FramerImage = motion(Image);
 
 const FeaturedProject = function ({ type, title, summary, img, link, github }) {
@@ -168,6 +171,11 @@ const Project = function ({ title, type, img, link, github }) {
 };
 
 export default function Projects() {
+  const [numbers, setNumbers] = useState(0);
+  useEffect(() => {
+    let num = (window.innerHeight - 70) / 30;
+    setNumbers(parseInt(num));
+  }, []);
   return (
     <>
       <TransitionEffect />
@@ -179,12 +187,12 @@ export default function Projects() {
       <main className="w-full mb-16 flex flex-col items-center justify-center dark:text-light">
         <Layout className="pt-16">
           <AnimatedText
-            text="Tui khong biet gi het tron"
+            text="My showcase projects"
             className="mb-16
           lg:!text-7xl sm:mb-8 sm:!text-6xl xs:!text-4xl 
           "
           />
-
+          <AnchorComponent number={numbers} />
           <div
             className="grid grid-cols-12 gap-24 gap-y-32
           xl:gap-x-16 lg:gap-x-8 md:gap-y-24 sm:gap-x-0
@@ -192,52 +200,26 @@ export default function Projects() {
           >
             <div className="col-span-12">
               <FeaturedProject
-                title="Crypto Screener Application"
-                summary="A feature-rich Crypto Screener App using React, Tailwind CSS, Context API, React Router and Recharts. 
-It shows detail regarding almost all the cryptocurrency. You can easily convert the price in your 
-local currency"
+                title="Music Player"
+                summary="A beautiful Mucsic App using NextJS, Tailwind CSS, Context API, Supabase, PostgresQL. 
+              It can add music from user, pay with Stripe and play music. "
                 img={project1}
-                link="https://github.com"
+                link="https://thuongmusic.vercel.app/"
                 type="Featured Project"
-                github="https://github.com"
+                github="https://github.com/minhthuong031103/MusicPlayer-nextjs"
               />
             </div>
 
             <div className="col-span-6 sm:col-span-12">
               {' '}
               <Project
-                title="Crypto Screener Application"
+                title="AI-Care, Emotibot"
                 summary="A feature-rich Crypto Screener App using React, Tailwind CSS, Context API, React Router and Recharts. 
 It shows detail regarding almost all the cryptocurrency. You can easily convert the price in your 
 local currency"
-                img={project1}
+                img={project2}
                 link="https://github.com"
-                type="Featured Project"
-                github="https://github.com"
-              />
-            </div>
-            <div className="col-span-6 sm:col-span-12">
-              {' '}
-              <Project
-                title="Crypto Screener Application"
-                summary="A feature-rich Crypto Screener App using React, Tailwind CSS, Context API, React Router and Recharts. 
-It shows detail regarding almost all the cryptocurrency. You can easily convert the price in your 
-local currency"
-                img={project1}
-                link="https://github.com"
-                type="Featured Project"
-                github="https://github.com"
-              />
-            </div>
-            <div className="col-span-12 sm:col-span-12">
-              <FeaturedProject
-                title="Crypto Screener Application"
-                summary="A feature-rich Crypto Screener App using React, Tailwind CSS, Context API, React Router and Recharts. 
-It shows detail regarding almost all the cryptocurrency. You can easily convert the price in your 
-local currency"
-                img={project1}
-                link="https://github.com"
-                type="Featured Project"
+                type="Self-Project"
                 github="https://github.com"
               />
             </div>
