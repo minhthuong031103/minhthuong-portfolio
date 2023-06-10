@@ -15,7 +15,7 @@ import {
 import { motion } from 'framer-motion';
 import useThemeSwitcher from './hooks/useThemeSwitcher';
 import { useState } from 'react';
-
+import { useTypewriter } from 'react-simple-typewriter';
 const CustomMobileLink = ({ href, title, className = '', toggle, path }) => {
   const router = useRouter();
 
@@ -70,6 +70,17 @@ const CustomLink = ({ href, title, className = '', path }) => {
 };
 
 const Navbar = function () {
+  const [text, count] = useTypewriter({
+    words: [
+      'Hi, My name is Minh Thuong',
+      'A software guy',
+      '< ILoveCoding />',
+      'A full-stack developer',
+      'Contact me for work',
+    ],
+    loop: true,
+    delaySpeed: 1000,
+  });
   const [mode, setMode] = useThemeSwitcher();
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
@@ -299,6 +310,10 @@ const Navbar = function () {
 
       <div className="absolute left-[50%] top-2 translate-x-[-50%]">
         <Logo />
+
+        <h2 className="mt-2 text-base md:text-sm sm:text-xs font-bold">
+          {text}
+        </h2>
       </div>
     </header>
   );

@@ -8,8 +8,17 @@ import AnimatedText from './components/AnimatedText';
 import Link from 'next/link';
 import { LinkArrow } from './components/Icons';
 import TransitionEffect from './components/TransitionEffect';
-
+import { useTypewriter } from 'react-simple-typewriter';
 export default function Home() {
+  const [text, count] = useTypewriter({
+    words: [
+      'Hi, My name is Minh Thuong',
+      'A software engineer guy',
+      '< ILoveCoding />',
+    ],
+    loop: true,
+    delaySpeed: 2000,
+  });
   return (
     <>
       <Head>
@@ -17,7 +26,7 @@ export default function Home() {
         <meta name="qq" content="cc"></meta>
       </Head>
       <TransitionEffect />
-      <main className="flex items-center text-dark w-full min-h-screen dark:text-light ">
+      <main className="flex items-center mt-6 text-dark w-full min-h-screen dark:text-light ">
         <Layout className="pt-0 md:p-16 sm:pt-8">
           <div className="flex items-center justify-between w-full lg:flex-col">
             <div className="w-1/2 inline-block cursor-pointer overflow-hidden rounded-xl md:w-full">
@@ -40,6 +49,7 @@ export default function Home() {
                 xl:!text-5xl lg:!text-center lg:!text-6xl md:!text-5xl sm:!text-3xl
                 "
               />
+
               <p className="my-4 text-base font-medium md:text-sm sm:text-xs">
                 As a skilled full-stack developer, I am dedicated to turning
                 ideas into innovative web applications. Explore my latest
