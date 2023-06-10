@@ -8,13 +8,17 @@ import Link from 'next/link';
 import article1 from '../../public/images/article1.jpg';
 import { motion } from 'framer-motion';
 import TransitionEffect from '../components/TransitionEffect';
+import AnchorComponent from '../components/Anchor';
+import { useEffect, useState } from 'react';
 const FramerImage = motion(Image);
 
 const FeaturedArticle = function ({ img, title, time, summary, link }) {
   return (
     <li
       className=" relative col-span-1 w-full p-4 bg-light 
-    border border-solid border-dark rounded-2xl dark:bg-dark dark:border-light "
+    border border-solid border-dark rounded-2xl dark:bg-dark dark:border-light
+
+    "
     >
       <div
         className="absolute top-0 -right-3 -z-10 
@@ -53,6 +57,12 @@ const FeaturedArticle = function ({ img, title, time, summary, link }) {
 };
 
 export default function Blogs() {
+  const [numbers, setNumbers] = useState(0);
+  useEffect(() => {
+    let num = (window.innerHeight - 70) / 30;
+    setNumbers(parseInt(num));
+  }, []);
+
   return (
     <>
       <Head>
@@ -60,6 +70,7 @@ export default function Blogs() {
         <meta name="description" content="any description"></meta>
       </Head>
       <TransitionEffect />
+
       <main
         className="w-full mb-16 flex flex-col
        items-center justify-center overflow-hidden dark:text-light"
@@ -71,7 +82,43 @@ export default function Blogs() {
              lg:!text-7xl sm:mb-8 sm:!text-6xl xs:!text-4xl 
           "
           />
+          <AnchorComponent number={numbers} />
           <ul className="grid grid-cols-2 gap-16 md:grid-cols-1 lg:gap-8 md:gap-y-16">
+            <FeaturedArticle
+              img={article1}
+              title="Minh thuiong viet blog"
+              summary="dang viet cai nay de test thoi nhe hahaha"
+              time="9 phut doc"
+              link="/"
+            />
+            <FeaturedArticle
+              img={article1}
+              title="Minh thuiong viet blog"
+              summary="dang viet cai nay de test thoi nhe hahaha"
+              time="9 phut doc"
+              link="/"
+            />
+            <FeaturedArticle
+              img={article1}
+              title="Minh thuiong viet blog"
+              summary="dang viet cai nay de test thoi nhe hahaha"
+              time="9 phut doc"
+              link="/"
+            />
+            <FeaturedArticle
+              img={article1}
+              title="Minh thuiong viet blog"
+              summary="dang viet cai nay de test thoi nhe hahaha"
+              time="9 phut doc"
+              link="/"
+            />
+            <FeaturedArticle
+              img={article1}
+              title="Minh thuiong viet blog"
+              summary="dang viet cai nay de test thoi nhe hahaha"
+              time="9 phut doc"
+              link="/"
+            />
             <FeaturedArticle
               img={article1}
               title="Minh thuiong viet blog"
