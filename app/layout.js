@@ -4,7 +4,6 @@ import Navbar from './components/Navbar';
 import './globals.css';
 import { Montserrat } from 'next/font/google';
 import { AnimatePresence } from 'framer-motion';
-import { usePathname } from 'next/navigation';
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -17,7 +16,6 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  const path = usePathname();
   return (
     <html lang="en">
       <body
