@@ -73,7 +73,7 @@ const Navbar = function () {
   const [mode, setMode] = useThemeSwitcher();
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
-  console.log(pathname);
+
   const handleClick = function () {
     setIsOpen(!isOpen);
   };
@@ -86,7 +86,7 @@ const Navbar = function () {
     >
       <button
         onClick={handleClick}
-        className=" flex-col justify-center items-center hidden lg:flex"
+        className="flex-col justify-center items-center hidden lg:flex"
       >
         <span
           className={`bg-dark dark:bg-light block transition-all
@@ -207,24 +207,28 @@ const Navbar = function () {
         >
           <nav className="flex items-center flex-col justify-center ">
             <CustomMobileLink
+              path={pathname}
               href="/"
               title="Home"
               className=""
               toggle={handleClick}
             ></CustomMobileLink>
             <CustomMobileLink
+              path={pathname}
               href="/about"
               title="About"
               className=""
               toggle={handleClick}
             ></CustomMobileLink>
             <CustomMobileLink
+              path={pathname}
               href="/projects"
               title="Projects"
               className=""
               toggle={handleClick}
             ></CustomMobileLink>
             <CustomMobileLink
+              path={pathname}
               href="/blogs"
               title="Blogs"
               className=""

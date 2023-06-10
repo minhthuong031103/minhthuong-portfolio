@@ -53,9 +53,18 @@ export default function About() {
       "
       >
         <Layout className="pt-16">
-          <AnimatedText className="mb-16 " text="Passion is the best!" />
-          <div className="grid w-full grid-cols-8 gap-16">
-            <div className="col-span-3 flex flex-col items-start justify-start">
+          <AnimatedText
+            className="mb-16
+          lg:!text-7xl sm:!text-6xl xs:!text-4xl sm:mb-8 
+          
+          "
+            text="Passion is the best!"
+          />
+          <div className="grid w-full grid-cols-8 gap-16 sm:gap-8 ">
+            <div
+              className="col-span-3 flex flex-col items-start justify-start
+             xl:col-span-4"
+            >
               <h2
                 className="mb-4 text-lg font-bold uppercase 
               text-dark/75 dark:text-light/75"
@@ -85,7 +94,9 @@ export default function About() {
             <div
               className="col-span-3 relative h-max rounded-2xl 
             border-2
-            border-solid border-dark bg-light p-8 dark:bg-dark dark:border-light"
+            border-solid border-dark bg-light p-8 dark:bg-dark dark:border-light
+            xl:col-span-4
+            "
             >
               <div
                 className="absolute top-0 -right-3 -z-10 
@@ -98,37 +109,61 @@ export default function About() {
                 className="w-full h-auto rounded-2xl"
               />
             </div>
-            <div className="col-span-2 flex flex-col items-end justify-between">
-              <div className="flex flex-col items-end justify-center">
-                <span className="inline-block text-7xl font-bold ">
+            <div
+              className="col-span-2 flex flex-col items-end justify-between
+            xl:col-span-8 xl:flex-row xl:items-center md:order-3
+            "
+            >
+              <div className="flex flex-col items-end justify-center xl:items-center ">
+                <span
+                  className="inline-block text-7xl font-bold 
+                md:text-6xl sm:text-5xl xs:text-4xl"
+                >
                   <AnimatedNumbers value={50} />+
                 </span>
                 <h2
                   className="text-xl font-medium capitalize
                 dark:text-light/75
-                text-dark/75"
+                text-dark/75   
+                xl:text-center md:text-lg sm:text-base
+                  xs:text-sm
+                "
                 >
                   hehe
                 </h2>
               </div>
-              <div className="flex flex-col items-end justify-center">
-                <span className="inline-block text-7xl font-bold ">
+              <div className="flex flex-col items-end justify-center xl:items-center">
+                <span
+                  className="inline-block text-7xl font-bold 
+                md:text-6xl sm:text-5xl xs:text-4xl "
+                >
                   <AnimatedNumbers value={50} />+
                 </span>
                 <h2
                   className="text-xl font-medium capitalize text-dark/75  
-                   dark:text-light/75"
+                   dark:text-light/75
+                   xl:text-center md:text-lg sm:text-base
+                   xs:text-sm
+                   "
                 >
                   loaoa as aso
                 </h2>
               </div>
-              <div className="flex flex-col items-end justify-center">
-                <span className="inline-block text-7xl font-bold ">
+              <div className="flex flex-col items-end justify-center xl:items-center">
+                <span
+                  className="inline-block text-7xl font-bold
+                md:text-6xl sm:text-5xl xs:text-4xl
+
+                "
+                >
                   <AnimatedNumbers value={50} />+
                 </span>
                 <h2
                   className="text-xl font-medium capitalize text-dark/75 
-                    dark:text-light/75"
+                    dark:text-light/75
+                    xl:text-center md:text-lg sm:text-base
+                    xs:text-sm
+                    "
                 >
                   aa sadas
                 </h2>

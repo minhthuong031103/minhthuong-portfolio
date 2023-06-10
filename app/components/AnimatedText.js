@@ -28,7 +28,7 @@ const singleWord = {
 export default function AnimatedText({ text, className = '' }) {
   return (
     <div
-      className="w-full mx-auto py-2 flex items-center 
+      className="w-full mx-auto py-2 flex items-center flex-col
     justify-center text-center overflow-hidden 
     sm:py-0 
     "

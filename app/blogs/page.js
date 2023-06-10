@@ -35,7 +35,11 @@ const FeaturedArticle = function ({ img, title, time, summary, link }) {
       </Link>
 
       <Link href={link} target={'_blank'}>
-        <h2 className="capitalize text-2xl font-bold my-2 hover:underline  ">
+        <h2
+          className="capitalize text-2xl font-bold my-2 hover:underline 
+        xs:text-lg 
+        "
+        >
           {title}
         </h2>
       </Link>
@@ -59,8 +63,13 @@ export default function Blogs() {
        items-center justify-center overflow-hidden dark:text-light"
       >
         <Layout className="pt-16">
-          <AnimatedText text="Words can change the world" className="mb-16" />
-          <ul className="grid grid-cols-2 gap-16 ">
+          <AnimatedText
+            text="Words can change the world"
+            className="mb-16
+             lg:!text-7xl sm:mb-8 sm:!text-6xl xs:!text-4xl 
+          "
+          />
+          <ul className="grid grid-cols-2 gap-16 md:grid-cols-1 lg:gap-8 md:gap-y-16">
             <FeaturedArticle
               img={article1}
               title="Minh thuiong viet blog"
