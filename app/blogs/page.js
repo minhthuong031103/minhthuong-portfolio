@@ -7,6 +7,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import article1 from '../../public/images/article1.jpg';
 import { motion } from 'framer-motion';
+import TransitionEffect from '../components/TransitionEffect';
 const FramerImage = motion(Image);
 
 const FeaturedArticle = function ({ img, title, time, summary, link }) {
@@ -58,6 +59,7 @@ export default function Blogs() {
         <title>MinhThuong | ArticlePage</title>
         <meta name="description" content="any description"></meta>
       </Head>
+      <TransitionEffect />
       <main
         className="w-full mb-16 flex flex-col
        items-center justify-center overflow-hidden dark:text-light"

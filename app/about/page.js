@@ -5,11 +5,18 @@ import Head from 'next/head';
 import Image from 'next/image';
 import profilePic from '../../public/images/aboutavatar.jpg';
 import { useEffect, useRef } from 'react';
-import { useInView, useMotionValue, useSpring } from 'framer-motion';
+import {
+  AnimatePresence,
+  useInView,
+  useMotionValue,
+  useSpring,
+} from 'framer-motion';
 
 import Skills from '../components/Skills';
 import Experience from '../components/Experience';
 import Education from '../components/Education';
+import { usePathname } from 'next/navigation';
+import TransitionEffect from '../components/TransitionEffect';
 
 const AnimatedNumbers = ({ value }) => {
   const ref = useRef(null);
@@ -41,12 +48,15 @@ const AnimatedNumbers = ({ value }) => {
 };
 
 export default function About() {
+  const path = usePathname();
   return (
     <>
       <Head>
         <title>MinhThuong | AboutPage</title>
         <meta name="description" content="any description"></meta>
       </Head>
+
+      <TransitionEffect />
       <main
         className="flex w-full flex-col items-center justify-center
       dark:text-light
@@ -111,6 +121,7 @@ export default function About() {
                 src={profilePic}
                 alt="minhthuong"
                 priority
+                sizes="(max-width: 768px) 100vw, (max-width:1200px) 50vw, 50vw"
                 className="w-full h-auto rounded-2xl"
               />
             </div>

@@ -7,6 +7,7 @@ import profilepic from '../public/images/avatar.jpg';
 import AnimatedText from './components/AnimatedText';
 import Link from 'next/link';
 import { LinkArrow } from './components/Icons';
+import TransitionEffect from './components/TransitionEffect';
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
         <title>{`Thuong's Portfolio`}</title>
         <meta name="qq" content="cc"></meta>
       </Head>
+      <TransitionEffect />
       <main className="flex items-center text-dark w-full min-h-screen dark:text-light ">
         <Layout className="pt-0 md:p-16 sm:pt-8">
           <div className="flex items-center justify-between w-full lg:flex-col">
@@ -24,7 +26,7 @@ export default function Home() {
                 alt="avatar"
                 className="w-full h-auto lg:hidden md:inline-block md:w-full"
                 priority
-                sizes="(max-width: 768px) 100vw, (max-width:1200px) 50vw, 50vw"
+                sizes="(max-width: 768px) 100vw, (max-width:1200px) 50vw, 33vw"
               />
             </div>
 

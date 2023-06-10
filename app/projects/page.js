@@ -8,6 +8,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import project1 from '../../public/images/crypto-screener-cover-image.jpg';
 import { motion } from 'framer-motion';
+import TransitionEffect from '../components/TransitionEffect';
 const FramerImage = motion(Image);
 
 const FeaturedProject = function ({ type, title, summary, img, link, github }) {
@@ -173,7 +174,7 @@ export default function Projects() {
         <title>MinhThuong | ProjectPage</title>
         <meta name="description" content="any description"></meta>
       </Head>
-
+      <TransitionEffect />
       <main className="w-full mb-16 flex flex-col items-center justify-center dark:text-light">
         <Layout className="pt-16">
           <AnimatedText
