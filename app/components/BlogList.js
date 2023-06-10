@@ -16,7 +16,7 @@ import {
   AiOutlineComment,
   AiOutlineShareAlt,
 } from 'react-icons/ai';
-import './Blog.module.css';
+
 const FramerImage = motion(Image);
 
 export const FeaturedArticle = function ({
