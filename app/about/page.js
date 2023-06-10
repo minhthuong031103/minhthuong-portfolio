@@ -60,10 +60,13 @@ export default function About() {
           "
             text="Passion is the best!"
           />
-          <div className="grid w-full grid-cols-8 gap-16 sm:gap-8 ">
+          <div
+            className="grid w-full grid-cols-8 gap-16 
+          sm:gap-8 "
+          >
             <div
               className="col-span-3 flex flex-col items-start justify-start
-             xl:col-span-4"
+             xl:col-span-4 md:order-2 md:col-span-8"
             >
               <h2
                 className="mb-4 text-lg font-bold uppercase 
@@ -92,10 +95,12 @@ export default function About() {
               </p>
             </div>
             <div
-              className="col-span-3 relative h-max rounded-2xl 
+              className="col-span-3 flex flex-col items-start justify-start
+               relative h-max rounded-2xl 
             border-2
-            border-solid border-dark bg-light p-8 dark:bg-dark dark:border-light
-            xl:col-span-4
+            border-solid border-dark bg-light p-8
+             dark:bg-dark dark:border-light
+            xl:col-span-4 md:order-1 md:col-span-8
             "
             >
               <div
