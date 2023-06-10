@@ -58,7 +58,7 @@ export default function Home() {
                 "
                   download={true}
                 >
-                  Resume <LinkArrow className={'w-6 ml-1'} />
+                  Resume <LinkArrow className={'!w-6 md:!w-4 ml-1'} />
                 </Link>
                 <Link
                   href="mailto:abcd@gmail.com"
