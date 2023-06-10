@@ -6,6 +6,7 @@ import LiIcon from './LiIcon';
 
 const Detail = ({ position, company, companyLink, time, address, work }) => {
   const ref = useRef(null);
+
   return (
     <li
       ref={ref}

@@ -6,6 +6,7 @@ import { useRef } from 'react';
 const LiIcon = function ({ reference }) {
   const { scrollYProgress } = useScroll({
     target: reference,
+    layoutEffect: false,
     offset: ['center end', 'center center'],
   });
   return (

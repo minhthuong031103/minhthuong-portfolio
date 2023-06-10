@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Logo from './Logo';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import {
   DribbbleIcon,
   GithubIcon,
@@ -16,7 +16,7 @@ import { motion } from 'framer-motion';
 import useThemeSwitcher from './hooks/useThemeSwitcher';
 import { useState } from 'react';
 
-const CustomMobileLink = ({ href, title, className = '', toggle }) => {
+const CustomMobileLink = ({ href, title, className = '', toggle, path }) => {
   const router = useRouter();
 
   const handleClick = function () {
@@ -39,7 +39,7 @@ const CustomMobileLink = ({ href, title, className = '', toggle }) => {
         left-0 -bottom-0.5 group-hover:w-full 
         transition-[width] 
          ease duration-300 dark:bg-dark
-         ${router.asPath === href ? 'w-full' : 'w-0'}
+         ${path === href ? 'w-full' : 'w-0'}
          `}
       >
         &nbsp;
@@ -48,7 +48,7 @@ const CustomMobileLink = ({ href, title, className = '', toggle }) => {
   );
 };
 
-const CustomLink = ({ href, title, className = '' }) => {
+const CustomLink = ({ href, title, className = '', path }) => {
   const router = useRouter();
 
   return (
@@ -60,7 +60,7 @@ const CustomLink = ({ href, title, className = '' }) => {
         left-0 -bottom-0.5 group-hover:w-full 
         transition-[width] 
          ease duration-300 dark:bg-light
-         ${router.asPath === href ? 'w-full' : 'w-0'}
+         ${path === href ? 'w-full' : 'w-0'}
          `}
       >
         &nbsp;
@@ -72,7 +72,8 @@ const CustomLink = ({ href, title, className = '' }) => {
 const Navbar = function () {
   const [mode, setMode] = useThemeSwitcher();
   const [isOpen, setIsOpen] = useState(false);
-
+  const pathname = usePathname();
+  console.log(pathname);
   const handleClick = function () {
     setIsOpen(!isOpen);
   };
@@ -109,16 +110,28 @@ const Navbar = function () {
       </button>
       <div className="w-full flex justify-between items-center lg:hidden">
         <nav>
-          <CustomLink href="/" title="Home" className="mr-4"></CustomLink>
-          <CustomLink href="/about" title="About" className="mx-4"></CustomLink>
           <CustomLink
+            path={pathname}
+            href="/"
+            title="Home"
+            className="mr-4"
+          ></CustomLink>
+          <CustomLink
+            path={pathname}
+            href="/about"
+            title="About"
+            className="mx-4"
+          ></CustomLink>
+          <CustomLink
+            path={pathname}
             href="/projects"
             title="Projects"
             className="mx-4"
           ></CustomLink>
           <CustomLink
-            href="/articles"
-            title="Articles"
+            path={pathname}
+            href="/blogs"
+            title="Blogs"
             className="ml-4"
           ></CustomLink>
         </nav>
@@ -212,8 +225,8 @@ const Navbar = function () {
               toggle={handleClick}
             ></CustomMobileLink>
             <CustomMobileLink
-              href="/articles"
-              title="Articles"
+              href="/blogs"
+              title="Blogs"
               className=""
               toggle={handleClick}
             ></CustomMobileLink>
