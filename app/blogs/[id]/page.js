@@ -20,16 +20,20 @@ const BlogPost = async function ({ params }) {
   // console.log(hljs.highlightAuto(bodyHTML));
   return (
     <>
-      <Layout className="dark:text-[#AC4425]">
-        <p className="text-center my-10 text-5xl xs:text-2xl font-bold">
-          {title}
-        </p>
-        <div className="flex justify-center mb-4">
-          <BlogHeader createdAt={createdAt} author={author} />
-        </div>
+      <section className="layout dark:text-[#AC4425]">
+        <div className="max-w-[100%] lg:px-6 px-60">
+          <p className="text-center my-10 text-5xl xs:text-2xl font-bold mt-10  ">
+            {title}
+          </p>
+          <div className="flex justify-center mb-4">
+            <BlogHeader createdAt={createdAt} author={author} />
+          </div>
 
-        <div className={`${detail.html}  flex flex-col`}>{parse(bodyHTML)}</div>
-      </Layout>
+          <div className={`${detail.html} flex flex-col`}>
+            {parse(bodyHTML)}
+          </div>
+        </div>
+      </section>
     </>
   );
 };

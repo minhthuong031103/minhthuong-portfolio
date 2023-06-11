@@ -21,5 +21,5 @@ async function fetchBlogs() {
 export default async function Blogs() {
   const { blogData, tags } = await fetchBlogs();
 
-  return <BlogList blogData={blogData}></BlogList>;
+  return <BlogList tags={tags} blogData={blogData}></BlogList>;
 }

@@ -1,7 +1,7 @@
 'use client';
 import Pagination from '@mui/material/Pagination';
 import Head from 'next/head';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import TransitionEffect from './TransitionEffect';
 import Layout from './Layout';
 import AnimatedText from './AnimatedText';
@@ -106,7 +106,26 @@ export const FeaturedArticle = function ({
     </li>
   );
 };
-export default function BlogList({ blogData }) {
+export default function BlogList({ blogData, tags }) {
+  const [filterWord, setFilterWord] = useState([]);
+  const [selectedIdx, setSelectedIdx] = useState([]);
+  const filteredBlog = useMemo(() => {
+    return filterWord.length > 0
+      ? blogData.filter((blog) => {
+          return filterWord.every((filter) => blog.tags.includes(filter));
+        })
+      : blogData;
+  }, [filterWord]);
+  const filterLabel = (tag, idx) => {
+    if (selectedIdx.includes(idx)) {
+      setSelectedIdx(selectedIdx.filter((id) => id !== idx));
+      setFilterWord(filterWord.filter((filter) => filter !== tag.innerText));
+    } else {
+      setSelectedIdx([...selectedIdx, idx]);
+      setFilterWord([...filterWord, tag.innerText]);
+    }
+  };
+  var blog = filteredBlog; //khuc nay la Blogs
   const [currentPage, setCurrentPage] = useState(1);
   const [numbers, setNumbers] = useState(0);
   useEffect(() => {
@@ -116,7 +135,7 @@ export default function BlogList({ blogData }) {
   const [blogsPerPage] = useState(4);
   const indexOfLastBlog = currentPage * blogsPerPage;
   const indexOfFirstBlog = indexOfLastBlog - blogsPerPage;
-  const currentBlogs = blogData.slice(indexOfFirstBlog, indexOfLastBlog);
+  const currentBlogs = blog.slice(indexOfFirstBlog, indexOfLastBlog);
   const paginate = (event, value) => {
     setCurrentPage(value);
   };
@@ -140,7 +159,47 @@ export default function BlogList({ blogData }) {
                lg:!text-7xl sm:mb-8 sm:!text-6xl xs:!text-4xl 
             "
           />
-          <AnchorComponent number={numbers} />
+          <h6 className="font-medium text-4xl w-full text-center mb-6  ">
+            This is where i write about what i learn
+          </h6>
+          <h3 className="font-bold text-4xl w-full text-center  ">
+            Find with Tags
+          </h3>
+          <div
+            className="flex flex-row
+         justify-center items-center flex-wrap
+            mt-10 mb-8"
+          >
+            {tags.map((tag, idx) => {
+              return (
+                <div
+                  key={idx}
+                  className={`${
+                    !selectedIdx.includes(idx)
+                      ? `flex justify-center items-center
+              text-xs text-left text-gray line-height[1.5] xl:text-lg 
+              px-2 py-3 rounded-md bg-[#ECE5C7] mb-5
+              text-black font-semibold 
+              cursor-pointer transition-all duration-300 
+              ease-in-out mx-2 hover:bg-secondary-color 
+           hover:text-[#116A7B] transform hover:translate-y-[-5px] 
+             md:px-4 md:py-2 md:rounded-lg`
+                      : `flex justify-center items-center
+            text-xs text-left text-gray line-height[1.5] xl:text-lg 
+            px-2 py-3 rounded-md bg-[#EA906C] mb-5 
+            text-black font-semibold 
+            cursor-pointer transition-all duration-300 
+            ease-in-out mx-2 hover:bg-secondary-color 
+         hover:text-[#116A7B] 
+           md:px-4 md:py-2 md:rounded-lg`
+                  }`}
+                  onClick={(e) => filterLabel(e.target, idx)}
+                >
+                  {tag}
+                </div>
+              );
+            })}
+          </div>
           <ul className="grid grid-cols-2 gap-16 md:grid-cols-1 lg:gap-8 md:gap-y-16">
             {currentBlogs ? (
               currentBlogs.map((blog) => {
@@ -168,11 +227,11 @@ export default function BlogList({ blogData }) {
             )}
           </ul>
           <h2 className="font-bold text-4xl w-full text-center my-16 mt-32 ">
-            All Articles
+            All Blogs
           </h2>
           {blogData.length > 3 && (
             <Pagination
-              color="standard"
+              color="secondary"
               shape="rounded"
               defaultPage={1}
               count={Math.ceil(blogData.length / blogsPerPage)}
@@ -182,6 +241,7 @@ export default function BlogList({ blogData }) {
             />
           )}
         </Layout>
+        <AnchorComponent number={numbers} />
       </main>
     </>
   );

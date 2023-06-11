@@ -20,10 +20,13 @@
   width: auto;
   max-width: 800px;
   max-height: 500px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 .html > * > * > code,
 .html > * > code {
-  background-color: rgb(210, 227, 167);
+  background-color: rgb(93, 93, 93);
   padding: 0.1em;
   border-radius: 6px;
 }
@@ -33,8 +36,8 @@
   margin: 0;
   overflow: auto;
   overflow-y: hidden;
-
-  background: #dfd3c3;
+  color: #ea906c;
+  background: #3a3939;
   border: 1px solid #777;
 
   border-radius: 12px;

@@ -57,7 +57,7 @@ const AnchorComponent = (props) => {
   }, []);
 
   return (
-    <Container>
+    <Container className="lg:hidden">
       <PreDisplay ref={hiddenRef} className="hidden">
         <Anchor width={70} height={70} fill="currentColor" />
       </PreDisplay>
