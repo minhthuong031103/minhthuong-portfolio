@@ -10,7 +10,7 @@
 
 Dạo gần đây mình bắt đầu chuyển dần từ create-react-app và Vite sang create-next-app (vì nhìn nó xịn vcl) nên là cũng phải học mấy cái bản chất của các thằng này, thì cái đầu tiên mình học đó là về SSR (Server Side Rendering) VÀ CSR (Client Side Rendering) để hiểu được tại sao mà thằng React lại chia ra nhiều thằng như thế.
 
-#2. Giải thích
+2. Giải thích
 
 ---
 
