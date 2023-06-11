@@ -22,6 +22,7 @@ export default function RootLayout({ children }) {
         className={`${montserrat.variable} font-mont bg-light dark:bg-dark w-full min-h-screen h-full`}
       >
         <Navbar />
+
         {children}
 
         <Footer />
