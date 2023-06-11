@@ -26,7 +26,7 @@
 }
 .html > * > * > code,
 .html > * > code {
-  background-color: rgb(93, 93, 93);
+  background-color: rgb(227, 81, 81);
   padding: 0.1em;
   border-radius: 6px;
 }
@@ -38,7 +38,7 @@
   overflow-y: hidden;
   color: #ea906c;
   background: #3a3939;
-  border: 1px solid #777;
+  border: 3px solid #526d82;
 
   border-radius: 12px;
 }
