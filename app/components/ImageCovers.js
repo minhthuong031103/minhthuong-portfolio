@@ -9,4 +9,8 @@ export const ImageCover = [
     id: 8,
     cover: image_id_8,
   },
+  {
+    id: 9,
+    cover: image_id_8,
+  },
 ];
