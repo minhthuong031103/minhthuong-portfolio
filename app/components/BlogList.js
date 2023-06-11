@@ -7,9 +7,10 @@ import Layout from './Layout';
 import AnimatedText from './AnimatedText';
 import AnchorComponent from './Anchor';
 import Link from 'next/link';
-import article1 from '../../public/project_images/musicplayer.png';
+
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { ImageCover } from './ImageCovers';
 import {
   AiOutlineTags,
   AiOutlineClockCircle,
@@ -203,6 +204,9 @@ export default function BlogList({ blogData, tags }) {
           <ul className="grid grid-cols-2 gap-16 md:grid-cols-1 lg:gap-8 md:gap-y-16">
             {currentBlogs ? (
               currentBlogs.map((blog) => {
+                const imageCover = ImageCover.find(
+                  (image) => image.id === blog.id
+                );
                 const createdDay = new Date(blog.createdAt);
                 const options = {
                   year: 'numeric',
@@ -212,7 +216,7 @@ export default function BlogList({ blogData, tags }) {
                 return (
                   <FeaturedArticle
                     key={blog.id}
-                    img={article1}
+                    img={imageCover.cover}
                     title={blog.title}
                     summary={blog.bodyText.slice(0, 300) + '...'}
                     time={createdDay.toLocaleDateString('en-US', options)}
