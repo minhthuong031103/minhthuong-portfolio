@@ -1,5 +1,9 @@
 ![nextjs](https://www.altamira.ai/wp-content/uploads/2022/12/CSR-vs-SSR-768x432.png.webp)
 
+- [1. Mở đầu](#1-mở-đầu)
+  - [2.1 Server Side Rendering (SSR) và Client Side Rendering (CSR)](#21-server-side-rendering-ssr-và-client-side-rendering-csr)
+- [3. Kết luận](#3-kết-luận)
+
 # 1. Mở đầu
 
 ---

@@ -223,19 +223,7 @@ local currency"
                 github="https://github.com"
               />
             </div>
-            <div className="col-span-6 sm:col-span-12">
-              {' '}
-              <Project
-                title="Crypto Screener Application"
-                summary="A feature-rich Crypto Screener App using React, Tailwind CSS, Context API, React Router and Recharts. 
-It shows detail regarding almost all the cryptocurrency. You can easily convert the price in your 
-local currency"
-                img={project1}
-                link="https://github.com"
-                type="Featured Project"
-                github="https://github.com"
-              />
-            </div>
+            <div className="col-span-6 sm:col-span-12"> </div>
           </div>
         </Layout>
       </main>
