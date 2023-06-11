@@ -29,7 +29,7 @@ const BlogPost = async function ({ params }) {
             <BlogHeader createdAt={createdAt} author={author} />
           </div>
 
-          <div className={`${detail.html} flex flex-col`}>
+          <div className={`${detail.html} flex overflow-auto flex-col`}>
             {parse(bodyHTML)}
           </div>
         </div>
