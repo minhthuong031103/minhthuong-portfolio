@@ -116,7 +116,7 @@ export default function BlogList({ blogData, tags }) {
           return filterWord.every((filter) => blog.tags.includes(filter));
         })
       : blogData;
-  }, [filterWord]);
+  }, [filterWord, blogData]);
   const filterLabel = (tag, idx) => {
     if (selectedIdx.includes(idx)) {
       setSelectedIdx(selectedIdx.filter((id) => id !== idx));
