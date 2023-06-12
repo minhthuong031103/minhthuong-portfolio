@@ -10,6 +10,7 @@ import project1 from '../../public/project_images/musicplayer.png';
 import project2 from '../../public/project_images/aiCare.png';
 import project3 from '../../public/project_images/portfolio.png';
 import project4 from '../../public/project_images/dialuxury.png';
+import project5 from '../../public/project_images/store.png';
 import { motion } from 'framer-motion';
 import TransitionEffect from '../components/TransitionEffect';
 import AnchorComponent from '../components/Anchor';
@@ -240,6 +241,16 @@ export default function Projects() {
                 link="https://dialuxury.vercel.app/"
                 type="Featured Project"
                 github="https://github.com/minhthuong031103/web_trangsuc_se104/"
+              />
+            </div>
+            <div className="col-span-12">
+              <FeaturedProject
+                title="Convenience Store"
+                summary="A desktop app use WPF C# framework adn SQL Server"
+                img={project5}
+                link="https://github.com/Ninhnon/ConvenienceStore"
+                type="Featured Project"
+                github="https://github.com/Ninhnon/ConvenienceStore"
               />
             </div>
             {/* <div className="col-span-6 sm:col-span-12"> //cot 1
