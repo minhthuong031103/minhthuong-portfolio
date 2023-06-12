@@ -8,6 +8,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import project1 from '../../public/project_images/musicplayer.png';
 import project2 from '../../public/project_images/aiCare.png';
+import project3 from '../../public/project_images/portfolio.png';
+import project4 from '../../public/project_images/dialuxury.png';
 import { motion } from 'framer-motion';
 import TransitionEffect from '../components/TransitionEffect';
 import AnchorComponent from '../components/Anchor';
@@ -209,8 +211,38 @@ export default function Projects() {
                 github="https://github.com/minhthuong031103/MusicPlayer-nextjs"
               />
             </div>
-
-            <div className="col-span-6 sm:col-span-12">
+            <div className="col-span-12">
+              <FeaturedProject
+                title="AI-Care, Emotibot"
+                summary="Commerce project Third prize UIT Webdev Adventure using JavaScript, HTML, CSS, TailwindCSS, MERN Stack ( MongoDB, ExpressJS, Reactjs, Nodejs ), 
+                OpenAI API, Rapid API, Cloudinary "
+                img={project2}
+                link="https://ai-care-uit.vercel.app/"
+                type="Featured Project"
+                github="https://github.com/minhthuong031103/AI-Care-frontend"
+              />
+            </div>
+            <div className="col-span-12">
+              <FeaturedProject
+                title="Portfolio Website"
+                summary="An appealing portfolio website about my self using NextJS, TailwindCSS, Framer Motion, Github GraphQL "
+                img={project3}
+                link="https://minhthuong-portfolio.vercel.app/"
+                type="Featured Project"
+                github="https://github.com/minhthuong031103/minhthuong-portfolio"
+              />
+            </div>
+            <div className="col-span-12">
+              <FeaturedProject
+                title="Dialuxury"
+                summary="A diamond store website use MERN Stack with Client and Admin Dashboard"
+                img={project4}
+                link="https://dialuxury.vercel.app/"
+                type="Featured Project"
+                github="https://github.com/minhthuong031103/web_trangsuc_se104/"
+              />
+            </div>
+            {/* <div className="col-span-6 sm:col-span-12"> //cot 1
               {' '}
               <Project
                 title="AI-Care, Emotibot"
@@ -221,9 +253,10 @@ local currency"
                 link="https://github.com"
                 type="Self-Project"
                 github="https://github.com"
-              />
-            </div>
-            <div className="col-span-6 sm:col-span-12"> </div>
+              /> //cot 2
+            </div> */}
+
+            {/* <div className="col-span-6 sm:col-span-12"> </div> */}
           </div>
         </Layout>
       </main>
