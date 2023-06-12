@@ -182,6 +182,7 @@ export default function Projects() {
   return (
     <>
       <TransitionEffect />
+
       <Head>
         <title>MinhThuong | ProjectPage</title>
         <meta name="description" content="any description"></meta>
