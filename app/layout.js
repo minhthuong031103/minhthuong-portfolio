@@ -10,10 +10,10 @@ const montserrat = Montserrat({
   variable: '--font-mont',
 });
 
-// export const metadata = {
-//   title: 'MinhThuong-Portfolio',
-//   description: 'Coded by MinhThuong',
-// };
+export const metadata = {
+  title: 'MinhThuong-Portfolio',
+  description: 'Coded by MinhThuong',
+};
 
 export default function RootLayout({ children }) {
   return (

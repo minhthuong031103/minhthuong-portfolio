@@ -13,6 +13,7 @@ async function getDetailPost(id) {
     blogData: blogDetail,
   };
 }
+
 const GeneralHead = ({ description, ogUrl, ogImage, ogTitle }) => {
   return (
     <>
@@ -39,7 +40,7 @@ const BlogPost = async function ({ params }) {
         {/* OG Sharing Deets */}
         <GeneralHead
           description="Hello đây là Blog của Minh Thường"
-          ogUrl="minhthuong-portfolio.com"
+          ogUrl="minhthuong-portfolio.vercel.app"
           ogImage={base_img}
           ogTitle={title}
         />
