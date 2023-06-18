@@ -4,6 +4,8 @@ import image_id_9 from '../../public/blog_images/blog_id_9.png';
 import image_id_10 from '../../public/blog_images/blog_id_10.jpg';
 import image_id_11 from '../../public/blog_images/blog_id_11.png';
 import image_id_12 from '../../public/blog_images/blog_id_12.png';
+import image_id_13 from '../../public/blog_images/blog_id_13.jpg';
+import image_id_14 from '../../public/blog_images/blog_id_14.png';
 export const ImageCover = [
   {
     id: 3,
@@ -28,5 +30,13 @@ export const ImageCover = [
   {
     id: 12,
     cover: image_id_12,
+  },
+  {
+    id: 13,
+    cover: image_id_13,
+  },
+  {
+    id: 14,
+    cover: image_id_14,
   },
 ];
