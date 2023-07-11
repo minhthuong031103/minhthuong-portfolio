@@ -6,6 +6,7 @@ import image_id_11 from '../../public/blog_images/blog_id_11.png';
 import image_id_12 from '../../public/blog_images/blog_id_12.png';
 import image_id_13 from '../../public/blog_images/blog_id_13.jpg';
 import image_id_14 from '../../public/blog_images/blog_id_14.png';
+import image_id_15 from '../../public/blog_images/blog_id_15.png';
 export const ImageCover = [
   {
     id: 3,
@@ -38,5 +39,9 @@ export const ImageCover = [
   {
     id: 14,
     cover: image_id_14,
+  },
+  {
+    id: 15,
+    cover: image_id_15,
   },
 ];

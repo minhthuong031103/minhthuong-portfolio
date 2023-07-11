@@ -11,6 +11,7 @@ import project2 from '../../public/project_images/aiCare.png';
 import project3 from '../../public/project_images/portfolio.png';
 import project4 from '../../public/project_images/dialuxury.png';
 import project5 from '../../public/project_images/store.png';
+import project6 from '../../public/project_images/shoe.png';
 import { motion } from 'framer-motion';
 import TransitionEffect from '../components/TransitionEffect';
 import AnchorComponent from '../components/Anchor';
@@ -222,6 +223,17 @@ export default function Projects() {
                 link="https://ai-care-uit.vercel.app/"
                 type="Featured Project"
                 github="https://github.com/minhthuong031103/AI-Care-frontend"
+              />
+            </div>
+            <div className="col-span-12">
+              <FeaturedProject
+                title="Shoes store Ecommerce"
+                summary="ECommerce project Using NodeJS (NestJS), Prisma, PostgresQL, NextJS, Redux, TailwindCSS 
+                 "
+                img={project6}
+                link="https://thuong-shoes.vercel.app/"
+                type="Featured Project"
+                github="https://github.com/minhthuong031103/ecommerce-nextjs-nestjs"
               />
             </div>
             <div className="col-span-12">

@@ -6,6 +6,29 @@ Các thư viện sẽ sử dụng:
 
 > npm i class-validator class-transformer @nestjs/passport passport passport-local express-session @nestjs/typeorm typeorm mysql2
 
+- [Code cùng AnSon NestJS-MySQL (P1)](#code-cùng-anson-nestjs-mysql-p1)
+- [Dùng intellisense cho env](#dùng-intellisense-cho-env)
+- [main.ts](#maints)
+- [App Module](#app-module)
+- [Tạo 1 database MySQL bằng command](#tạo-1-database-mysql-bằng-command)
+- [Tạo Entity User](#tạo-entity-user)
+- [Export entity](#export-entity)
+- [Khởi tạo constant cho Route và Service Inject](#khởi-tạo-constant-cho-route-và-service-inject)
+- [User](#user)
+  - [Tạo User Module](#tạo-user-module)
+  - [Tạo User Controller](#tạo-user-controller)
+  - [Tạo User Service](#tạo-user-service)
+    - [Interface User Service](#interface-user-service)
+  - [Hash password và compare](#hash-password-và-compare)
+  - [User Service](#user-service)
+  - [Local Stratergy.ts](#local-stratergyts)
+  - [Guard.ts apply các Strategy](#guardts-apply-các-strategy)
+  - [Serialize và Deserialize](#serialize-và-deserialize)
+- [Cài đặt Auth module](#cài-đặt-auth-module)
+  - [Auth Controller](#auth-controller)
+  - [Auth service](#auth-service)
+    - [Interface Auth Service](#interface-auth-service)
+
 # Dùng intellisense cho env
 
 ```ts
