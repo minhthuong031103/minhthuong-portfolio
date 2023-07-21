@@ -8,11 +8,15 @@ Các thư viện sẽ sử dụng:
 
 - [Code cùng AnSon NestJS-MySQL (P1)](#code-cùng-anson-nestjs-mysql-p1)
 - [Dùng intellisense cho env](#dùng-intellisense-cho-env)
+- [Kết nối với MySQL bằng DataSource](#kết-nối-với-mysql-bằng-datasource)
+  - [Tạo database provider](#tạo-database-provider)
+  - [Tạo database module](#tạo-database-module)
 - [main.ts](#maints)
 - [App Module](#app-module)
 - [Tạo 1 database MySQL bằng command](#tạo-1-database-mysql-bằng-command)
 - [Tạo Entity User](#tạo-entity-user)
 - [Export entity](#export-entity)
+  - [Tạo User Provider](#tạo-user-provider)
 - [Khởi tạo constant cho Route và Service Inject](#khởi-tạo-constant-cho-route-và-service-inject)
 - [User](#user)
   - [Tạo User Module](#tạo-user-module)
@@ -44,6 +48,54 @@ declare namespace NodeJS {
 }
 ```
 
+# Kết nối với MySQL bằng DataSource
+
+**Cái TypeORMModule for Root không dùng nữa nên là phải theo Docs mới**
+
+## Tạo database provider
+
+```ts
+database.provider.ts;
+import entities from 'src/utils/typeorm';
+import { DataSource } from 'typeorm';
+
+export const databaseProviders = [
+  {
+    provide: 'DATA_SOURCE',
+    useFactory: async () => {
+      const dataSource = new DataSource({
+        host: process.env.MYSQL_DB_HOST, //mặc định là 3306
+        port: process.env.MYSQL_DB_PORT,
+        username: process.env.MYSQL_DB_USERNAME, //mặc định là root
+        password: process.env.MYSQL_DB_PASSWORD, //password mà mình cài khi cài mysql server
+        database: process.env.MYSQL_DB_DATABASE, //tên của data base
+        entities: entities, //các entites được định nghĩa và export ra
+        synchronize: true, //Đồng bộ với các entites, nó sẽ tự cập nhật trong database nếu có sự thay đổi
+      });
+
+      return dataSource.initialize(); //gọi hàm này để provider return về DATA SOURCE trong inject container
+    },
+  },
+];
+//Cái code này có trong document của NestJS ORM, tương tự cái module for Root thôi
+```
+
+## Tạo database module
+
+```ts
+database.module.ts;
+import { Module } from '@nestjs/common';
+import { databaseProviders } from './database.provider';
+
+@Module({
+  providers: [...databaseProviders],
+  exports: [...databaseProviders],
+})
+export class DatabaseModule {}
+```
+
+**Mục đích của DatabaseModule là để import vào các module mà cần dùng tới database**
+
 # main.ts
 
 ```ts
@@ -52,10 +104,16 @@ import 'reflect-metadata'; //dùng cho các decorators
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
+import { DataSource } from 'typeorm';
 import * as session from 'express-session';
 import * as passport from 'passport';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  const dataSource: DataSource = app.get<DataSource>('DATA_SOURCE');
+  // Ta đã có module Data Source rồi và nó nằm trong inject container => lấy dựa trên provide
+  //ví dụ muốn lấy sessionRepository
+  const sessionRepository = dataSource.getRepository(Session);
+  // với Session là Entity đã được định nghĩa
   const { PORT, COOKIE_SECRET } = process.env; //PORT 3001 env
   app.setGlobalPrefix('api'); //set global prefix (api)
   app.useGlobalPipes(new ValidationPipe());
@@ -101,18 +159,6 @@ import { PassportModule } from '@nestjs/passport';
       envFilePath: '.env', //config env path bằng Config
     }),
     PassportModule.register({ session: true }), //Tiến hành đăng ký Passport sử dụng session
-
-    //Để sử dụng type ORM, ta cài đặt module type orm trong app module vỡi các thông số sau
-    TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: process.env.MYSQL_DB_HOST, //mặc định là 3306
-      port: process.env.MYSQL_DB_PORT,
-      username: process.env.MYSQL_DB_USERNAME, //mặc định là root
-      password: process.env.MYSQL_DB_PASSWORD, //password mà mình cài khi cài mysql server
-      database: process.env.MYSQL_DB_DATABASE, //tên của data base
-      entities: entities, //các entites được định nghĩa và export ra
-      synchronize: true, //Đồng bộ với các entites, nó sẽ tự cập nhật trong database nếu có sự thay đổi
-    }),
 
     AuthModule,
     UserModule,
@@ -174,6 +220,33 @@ export { User };
 export default entities;
 ```
 
+**Khi ta đã có data Source, cứ mỗi 1 Entity ta sẽ tạo 1 provider tương ứng với entity đó dựa trên DataSource, mục đích của Provider là sẽ tạo ra Repository tương ứng với Entity trong inject Container đó để dùng trong service...**
+
+## Tạo User Provider
+
+```ts
+User.provider.ts;
+import { User } from 'src/utils/typeorm';
+import { DataSource } from 'typeorm';
+
+export const userProviders = [
+  {
+    provide: 'USER_REPOSITORY',
+    useFactory: (dataSource: DataSource) => dataSource.getRepository(User),
+    inject: ['DATA_SOURCE'],
+  },
+];
+//Lúc này ta sẽ có được USER_REPOSITORY Trong inject container
+/*
+và có thể dùng nó bằng cách
+ constructor(
+
+    @Inject('USER_REPOSITORY')
+    private readonly userRepository: Repository<User> //Định nghĩa instance
+  ) {}
+*/
+```
+
 # Khởi tạo constant cho Route và Service Inject
 
 ```ts
@@ -192,6 +265,8 @@ export enum Services {
 
 # User
 
+**Khi ta đã có userProviders và Databasemodule, để dùng được UserRepository trong service, ta cần imports:[databaseModule] và thêm ...userproviders vào providers**
+
 ## Tạo User Module
 
 ```ts
@@ -201,15 +276,16 @@ import { UserService } from './user.service';
 import { Services } from 'src/utils/constants';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from 'src/utils/typeorm';
-
+import { userProviders } from 'src/database/providers/User.provider';
+import { DatabaseModule } from 'src/database/database.module';
 @Module({
-  imports: [TypeOrmModule.forFeature([User])], //Nếu như mình dùng Entity nào trong module này
-  //thì mình phải import nó trong array for Feature
+  imports: [DatabaseModule],
   controllers: [UserController],
-  providers: [{ provide: Services.USER, useClass: UserService }],
-  //định nghĩa inject service
+  providers: [
+    ...userProviders,
+    { provide: Services.USER, useClass: UserService },
+  ],
   exports: [{ provide: Services.USER, useClass: UserService }],
-  //export ra cho module Auth dùng
 })
 export class UserModule {}
 ```
@@ -299,7 +375,8 @@ import { hashPassword } from 'src/utils/typeorm/helper';
 export class UserService implements IUserServices {
   //Implement theo interface
   constructor(
-    @InjectRepository(User) //Nếu ta dùng entity User thì ta cần inject, User là Entity
+    //Để inject repository ta làm như sau:
+    @Inject('USER_REPOSITORY')
     private readonly userRepository: Repository<User> //Định nghĩa instance
   ) {}
   async createUser(userDetails: CreateUserDetail) {
